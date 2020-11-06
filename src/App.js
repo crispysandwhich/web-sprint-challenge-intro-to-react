@@ -9,14 +9,7 @@ const StyleApp = styled.div`
   color: ${pr => pr.theme.primaryColor};
   background-color: ${pr => pr.theme.secondaryColor};
   
-  div{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    hight: 100%;
-  }
+
 ` 
 
 
@@ -38,6 +31,7 @@ const App = () => {
     <StyleApp>
       <header id="mainHeader">
         <h1 className="title">Rick & Morty API</h1>
+        <p className="copyright">Made with love <a href="https://ghostieve.com" target='_blank'>de_gentleman</a></p>
       </header>
       <Characters characters={cList} />
     </StyleApp>

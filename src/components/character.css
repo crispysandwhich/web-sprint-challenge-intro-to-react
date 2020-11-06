@@ -1,0 +1,16 @@
+.alive{
+    color: green;
+}
+.dead{
+    color: darkred;
+}
+
+.alive , .dead{
+    font-size: 1.2rem;
+    font-weight: strong;
+    padding: 10px 0;
+}
+
+.lastP{
+    padding-bottom: 10px;
+}
