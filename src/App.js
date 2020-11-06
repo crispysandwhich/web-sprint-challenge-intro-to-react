@@ -1,18 +1,40 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import Characters from './components/Character';
+import Axios from 'axios';
+import styled from 'styled-components'
+
+
+const StyleApp = styled.div`
+  color: ${pr => pr.theme.primaryColor};
+  background-color: ${pr => pr.theme.secondaryColor};
+  
+
+` 
+
+
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
 
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
+  const [cList, setCList] = useState([])
+  
+  useEffect(() => {
+    Axios.get('https://rickandmortyapi.com/api/character/?page=1')
+      .then(res =>{
+        // console.log(res.data.results)
+        setCList(res.data.results)
+      })
+      .catch(err => console.log(err))
+  },[])
 
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
-    </div>
+    <StyleApp>
+      <header id="mainHeader">
+        <h1 className="title">Rick & Morty API</h1>
+        <p className="copyright">Made with love <a href="https://ghostieve.com" target='_blank'>de_gentleman</a></p>
+      </header>
+      <Characters characters={cList} />
+    </StyleApp>
   );
 }
 
