@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const StyleApp = styled.div`
   color: ${pr => pr.theme.primaryColor};
   background-color: ${pr => pr.theme.secondaryColor};
-  
+  text-align: center;
 
 ` 
 
